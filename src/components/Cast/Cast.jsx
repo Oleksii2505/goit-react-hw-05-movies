@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { fetchMovieCast } from 'api/api';
+import { fetchMovieCast } from 'services/api';
 import {
   CastItem,
   ProfileImgThumb,

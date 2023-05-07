@@ -1,24 +1,30 @@
 import styled from '@emotion/styled';
 
-export const CastItem = styled.li`
-  border-radius: 10px;
+export const TrendingItem = styled.li`
+  border-radius: 8px;
   overflow: hidden;
   background-color: #af93aa12;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 280px;
+  width: 352px;
   transition-duration: 250ms;
   transition-property: scale;
   transition-timing-function: ease-in-out;
+  &:hover {
+    scale: 1.02;
+    box-shadow: 0px 1px 2px rgb(255 0 249 / 31%),
+      0px 2px 4px rgb(255 0 245 / 50%), 0px 4px 8px rgb(255 235 0 / 31%),
+      0px 8px 16px rgb(255 247 254 / 35%);
+  }
 `;
 
-export const ProfileImgThumb = styled.div`
-  // width: 280px;
-  // height: 352px;
+export const ImgThumb = styled.div`
+  width: 352px;
+  height: 528px;
 `;
 
-export const ArtistGallery = styled.ul`
+export const TrendingGallery = styled.ul`
   padding: 32px 0;
   display: flex;
   justify-content: center;
@@ -26,18 +32,12 @@ export const ArtistGallery = styled.ul`
   gap: 20px;
 `;
 
-export const ArtistNameThumb = styled.div`
+export const TitleMovieThumb = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 8px;
   justify-content: center;
   align-items: center;
   height: 60px;
   padding: 16px 0;
   text-align: center;
   font-size: 12px;
-`;
-
-export const ArtistPhoto = styled.img`
-  object-fit: cover;
 `;
