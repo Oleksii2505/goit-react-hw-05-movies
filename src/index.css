@@ -9,9 +9,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #140e12;
+  background-color: #19198c;
   color: #f0fff8d4;
-  line-height: 24px;
+  line-height: 20px;
 }
 
 code {
@@ -49,4 +49,8 @@ h3 {
 
 ul {
   list-style: none;
+}
+
+.msg {
+  text-align: center;
 }
