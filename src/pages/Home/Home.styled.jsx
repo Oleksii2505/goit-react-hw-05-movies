@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const TrendingItem = styled.li`
   border-radius: 8px;
   overflow: hidden;
-  background-color: #af93aa12;
+  background-color: #49248a;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -19,10 +19,7 @@ export const TrendingItem = styled.li`
   }
 `;
 
-export const ImgThumb = styled.div`
-  width: 352px;
-  height: 528px;
-`;
+export const ImgBox = styled.div``;
 
 export const TrendingGallery = styled.ul`
   padding: 32px 0;
@@ -32,7 +29,7 @@ export const TrendingGallery = styled.ul`
   gap: 20px;
 `;
 
-export const TitleMovieThumb = styled.div`
+export const TitleMovieBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

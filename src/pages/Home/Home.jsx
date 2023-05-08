@@ -4,8 +4,8 @@ import { fetchTrendingMoviesData } from 'services/api';
 import {
   TrendingItem,
   TrendingGallery,
-  ImgThumb,
-  TitleMovieThumb,
+  ImgBox,
+  TitleMovieBox,
 } from './Home.styled';
 import { PosterImg } from 'pages/Movies/Movies.styled';
 
@@ -38,20 +38,20 @@ const Home = () => {
         return (
           <Link to={`/movies/${id}`} key={id}>
             <TrendingItem>
-              <ImgThumb>
+              <ImgBox>
                 <PosterImg
                   src={
                     poster_path
                       ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                      : `https://media.istockphoto.com/id/147273331/uk/%D1%84%D0%BE%D1%82%D0%BE/%D1%81%D0%B8%D0%BD%D1%94-%D0%B2%D1%96%D0%B4%D1%80%D0%BE-%D0%BF%D0%BE%D0%BF%D0%BA%D0%BE%D1%80%D0%BD%D1%83.jpg?s=2048x2048&w=is&k=20&c=EVEpgBCnZmkrieihX5eDgsssBgcGyU71woNkj5N4FiM=`
+                      : `https://as1.ftcdn.net/v2/jpg/01/41/48/32/1000_F_141483247_cvrudefB00p8qNxoapWW54jjm3LzXFgz.jpg`
                   }
                   alt={title}
                   width="352"
                 />
-              </ImgThumb>
-              <TitleMovieThumb>
+              </ImgBox>
+              <TitleMovieBox>
                 <h2>{title}</h2>
-              </TitleMovieThumb>
+              </TitleMovieBox>
             </TrendingItem>
           </Link>
         );
