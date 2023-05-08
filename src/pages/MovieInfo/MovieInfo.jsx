@@ -1,15 +1,13 @@
 import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { useEffect, useState, useRef, Suspense } from 'react';
-
 import { ColorRing } from 'react-loader-spinner';
-
 import { fetchMovieInfo } from 'services/api';
 import { FaAngleLeft } from 'react-icons/fa';
 import {
-  MovieDetailsThumb,
+  MovieDetailsBlock,
   BackLink,
-  MovieInfoCard,
-  TextContentBox,
+  MovieInfoSection,
+  TextContentThumb,
   OverviewBox,
   GenresBox,
   AdditionalInfoBox,
@@ -38,14 +36,14 @@ const MovieInfo = () => {
   }, [movieId]);
 
   return (
-    <MovieDetailsThumb>
+    <MovieDetailsBlock>
       <BackLink to={pathToBack.current}>
         <FaAngleLeft />
         Back
       </BackLink>
       {Boolean(Object.keys(movieDetails).length) && (
         <div>
-          <MovieInfoCard>
+          <MovieInfoSection>
             <div>
               <img
                 src={
@@ -57,7 +55,7 @@ const MovieInfo = () => {
                 width="352"
               />
             </div>
-            <TextContentBox>
+            <TextContentThumb>
               <h1>{movieDetails.title}</h1>
               <p>Average score: {movieDetails.vote_average}</p>
               <OverviewBox>
@@ -82,8 +80,8 @@ const MovieInfo = () => {
                   </li>
                 </AdditionalInfoList>
               </AdditionalInfoBox>
-            </TextContentBox>
-          </MovieInfoCard>
+            </TextContentThumb>
+          </MovieInfoSection>
 
           <Suspense
             fallback={
@@ -104,7 +102,7 @@ const MovieInfo = () => {
           </Suspense>
         </div>
       )}
-    </MovieDetailsThumb>
+    </MovieDetailsBlock>
   );
 };
 

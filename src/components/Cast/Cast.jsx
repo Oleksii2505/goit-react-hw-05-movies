@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieCast } from 'services/api';
 import {
   CastItem,
-  ProfileImgThumb,
+  ProfileImgBox,
   ArtistGallery,
-  ArtistNameThumb,
+  ArtistNameBox,
   ArtistPhoto,
 } from './Cast.styled';
 
@@ -40,27 +40,27 @@ const Cast = () => {
   return (
     <ArtistGallery>
       {!cast.length ? (
-        <p>Possibly, there is no information about cast</p>
+        <p>Probably there is no information about cast</p>
       ) : (
         cast.map(({ id, character, name, profile_path }) => {
           return (
             <CastItem key={id}>
-              <ProfileImgThumb>
+              <ProfileImgBox>
                 <ArtistPhoto
                   src={
                     profile_path
                       ? `https://image.tmdb.org/t/p/w500/${profile_path}`
-                      : `https://as1.ftcdn.net/v2/jpg/05/64/45/52/1000_F_564455291_RRMiR6jlecxRBpSdtOT1KAX8a8FRhinM.jpg`
+                      : `https://as2.ftcdn.net/v2/jpg/03/54/78/27/1000_F_354782704_WMBoKbL7pRjWda8YiAy4XfJ5gLAhx2aJ.jpg`
                   }
                   alt={name}
                   width="280"
-                  height="420"
+                  height="400"
                 />
-              </ProfileImgThumb>
-              <ArtistNameThumb>
+              </ProfileImgBox>
+              <ArtistNameBox>
                 <h3>{name}</h3>
                 <p>{character}</p>
-              </ArtistNameThumb>
+              </ArtistNameBox>
             </CastItem>
           );
         })

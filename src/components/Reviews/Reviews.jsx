@@ -34,7 +34,7 @@ const Reviews = () => {
   return (
     <ReviewsList>
       {!reviews.length ? (
-        <p className="msg">Possibly, there are no reviews</p>
+        <p className="msg">Probably there are no reviews</p>
       ) : (
         reviews.map(({ id, content }) => {
           return (

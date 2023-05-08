@@ -38,7 +38,7 @@ const Movies = () => {
 
         if (!results.length) {
           Notiflix.Notify.warning(
-            'Oops there are no movies by this search, try another title'
+            'Oops, there are no movies by this search, try another title'
           );
         }
         const filteredData = results.map(
@@ -48,7 +48,6 @@ const Movies = () => {
             original_title,
           })
         );
-
         setFilteredMovies(filteredData);
       };
 

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const CastItem = styled.li`
   border-radius: 10px;
   overflow: hidden;
-  background-color: #af93aa12;
+  background-color: #49248a;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -13,10 +13,7 @@ export const CastItem = styled.li`
   transition-timing-function: ease-in-out;
 `;
 
-export const ProfileImgThumb = styled.div`
-  // width: 280px;
-  // height: 352px;
-`;
+export const ProfileImgBox = styled.div``;
 
 export const ArtistGallery = styled.ul`
   padding: 32px 0;
@@ -26,7 +23,7 @@ export const ArtistGallery = styled.ul`
   gap: 20px;
 `;
 
-export const ArtistNameThumb = styled.div`
+export const ArtistNameBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;

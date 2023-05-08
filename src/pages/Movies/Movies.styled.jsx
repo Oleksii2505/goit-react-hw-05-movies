@@ -4,7 +4,7 @@ export const SearchBarHeader = styled.header`
   top: 0;
   left: 0;
   position: sticky;
-  z-index: 1100;
+  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@ export const SearchForm = styled.form`
   width: 100%;
   max-width: 600px;
   background-color: #140e1294;
-  border-radius: 3px;
+  border-radius: 8px;
   overflow: hidden;
 `;
 

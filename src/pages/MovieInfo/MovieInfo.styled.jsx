@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-export const MovieDetailsThumb = styled.div`
+export const MovieDetailsBlock = styled.div`
   padding: 24px 32px;
 `;
 
@@ -9,23 +9,24 @@ export const BackLink = styled(Link)`
   display: flex;
   align-items: center;
   gap: 16px;
-  width: 80px;
-  background-color: #000000;
+  width: 90px;
+  background-color: #0d2142;
   color: #963d77;
   padding: 6px 8px;
   border-radius: 4px;
   &:hover {
-    color: #e893d1;
+    color: #062961;
+    background-color: #7997c7;
   }
 `;
 
-export const MovieInfoCard = styled.div`
+export const MovieInfoSection = styled.div`
   padding: 32px 0;
   display: flex;
   gap: 36px;
 `;
 
-export const TextContentBox = styled.div`
+export const TextContentThumb = styled.div`
   display: flex;
   flex-direction: column;
   gap: 36px;
@@ -44,7 +45,7 @@ export const GenresBox = styled.div`
 `;
 
 export const AdditionalInfoBox = styled.div`
-  padding: 32px 0 0 0;
+  padding: 30px 0 0 0;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -56,8 +57,8 @@ export const AdditionalInfoList = styled.ul`
 `;
 
 export const AdditionalItemLink = styled(Link)`
-  color: #995085;
+  color: #baed42;
   &:hover {
-    color: #e893d1;
+    color: #3bd984;
   }
 `;

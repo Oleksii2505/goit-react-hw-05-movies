@@ -24,12 +24,11 @@ const Home = () => {
           poster_path,
           title,
         }));
-
         setPopularMovies(filteredData);
       };
       getTrendingMovies();
-    } catch (e) {
-      console.log(e);
+    } catch (err) {
+      console.log(err);
     }
   }, []);
 
