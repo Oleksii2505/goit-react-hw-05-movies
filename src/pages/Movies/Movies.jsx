@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useSearchParams, useLocation } from 'react-router-dom';
+import {  useSearchParams } from 'react-router-dom';
 import Notiflix from 'notiflix';
 import { FaSistrix } from 'react-icons/fa';
 import { fetchMoviesBySearchWord } from 'services/api';
@@ -9,21 +9,16 @@ import {
   SearchInput,
   SearchFormBtn,
   SearchFormBtnLabel,
-  PosterImg,
 } from './Movies.styled';
-import {
-  TrendingItem,
-  TrendingGallery,
-  TitleMovieBox,
-  ImgBox,
-} from '../Home/Home.styled';
+
+import { MovieList } from 'components/MovieList/MovieList';
 
 const Movies = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQueryFromParams = searchParams.get('query');
-  const location = useLocation();
+  // const location = useLocation();
 
   useEffect(() => {
     if (searchQueryFromParams === null) {
@@ -48,7 +43,7 @@ const Movies = () => {
             original_title,
           })
         );
-        setFilteredMovies(filteredData);
+        setMovies(filteredData);
       };
 
       getFilteredMovies();
@@ -99,32 +94,34 @@ const Movies = () => {
         </SearchForm>
       </SearchBarHeader>
 
-      {filteredMovies && (
-        <TrendingGallery>
-          {filteredMovies.map(({ id, poster_path, original_title }) => {
-            return (
-              <Link to={`/movies/${id}`} state={{ from: location }} key={id}>
-                <TrendingItem>
-                  <ImgBox>
-                    <PosterImg
-                      src={
-                        poster_path
-                          ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                          : `https://as1.ftcdn.net/v2/jpg/01/41/48/32/1000_F_141483247_cvrudefB00p8qNxoapWW54jjm3LzXFgz.jpg`
-                      }
-                      alt={original_title}
-                      width="352"
-                      height="400"
-                    />
-                  </ImgBox>
-                  <TitleMovieBox>
-                    <h2>{original_title}</h2>
-                  </TitleMovieBox>
-                </TrendingItem>
-              </Link>
-            );
-          })}
-        </TrendingGallery>
+      {movies && (
+        <MovieList movies={movies}/>
+        // <TrendingGallery>
+        //   {filteredMovies.map(({ id, poster_path, original_title }) => {
+        //     return (
+        //       <Link to={`/movies/${id}`} state={{ from: location }} key={id}>
+        //         <TrendingItem>
+        //           <ImgBox>
+        //             <PosterImg
+        //               src={
+        //                 poster_path
+        //                   ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+        //                   : `https://as1.ftcdn.net/v2/jpg/01/41/48/32/1000_F_141483247_cvrudefB00p8qNxoapWW54jjm3LzXFgz.jpg`
+        //               }
+        //               alt={original_title}
+        //               width="352"
+        //               height="400"
+        //             />
+        //           </ImgBox>
+        //           <TitleMovieBox>
+        //             <h2>{original_title}</h2>
+        //           </TitleMovieBox>
+        //         </TrendingItem>
+        //       </Link>
+        //     );
+        //   })}
+        // </TrendingGallery>
+
       )}
     </div>
   );

@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { fetchTrendingMoviesData } from 'services/api';
-import {
-  TrendingItem,
-  TrendingGallery,
-  ImgBox,
-  TitleMovieBox,
-} from './Home.styled';
-import { PosterImg } from 'pages/Movies/Movies.styled';
-
+import { MovieList } from 'components/MovieList/MovieList';
+// import { Link, useLocation } from 'react-router-dom';
+// import { TrendingGallery, 
+//   TrendingItem, 
+//   ImgBox, 
+//   PosterImg,
+//   TitleMovieBox } from 'components/MovieList/MovieList.styled';
 const Home = () => {
-  const [popularMovies, setPopularMovies] = useState([]);
+  const [movies, setMovies] = useState([]);
+  // const location = useLocation();
 
   useEffect(() => {
     try {
@@ -24,7 +23,7 @@ const Home = () => {
           poster_path,
           title,
         }));
-        setPopularMovies(filteredData);
+        setMovies(filteredData);
       };
       getTrendingMovies();
     } catch (err) {
@@ -33,30 +32,33 @@ const Home = () => {
   }, []);
 
   return (
-    <TrendingGallery>
-      {popularMovies.map(({ id, poster_path, title }) => {
-        return (
-          <Link to={`/movies/${id}`} key={id}>
-            <TrendingItem>
-              <ImgBox>
-                <PosterImg
-                  src={
-                    poster_path
-                      ? `https://image.tmdb.org/t/p/w500/${poster_path}`
-                      : `https://as1.ftcdn.net/v2/jpg/01/41/48/32/1000_F_141483247_cvrudefB00p8qNxoapWW54jjm3LzXFgz.jpg`
-                  }
-                  alt={title}
-                  width="352"
-                />
-              </ImgBox>
-              <TitleMovieBox>
-                <h2>{title}</h2>
-              </TitleMovieBox>
-            </TrendingItem>
-          </Link>
-        );
-      })}
-    </TrendingGallery>
+    <MovieList movies={movies}/>
+  //   <TrendingGallery>
+  //   {movies.map(({ id, poster_path, original_title }) => {
+  //     return (
+  //       <Link to={`/movies/${id}`} state={{ from: location }} key={id}>
+  //         <TrendingItem>
+  //           <ImgBox>
+  //             <PosterImg
+  //               src={
+  //                 poster_path
+  //                   ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+  //                   : `https://as1.ftcdn.net/v2/jpg/01/41/48/32/1000_F_141483247_cvrudefB00p8qNxoapWW54jjm3LzXFgz.jpg`
+  //               }
+  //               alt={original_title}
+  //               width="352"
+  //               height="400"
+  //             />
+  //           </ImgBox>
+  //           <TitleMovieBox>
+  //             <h2>{original_title}</h2>
+  //           </TitleMovieBox>
+  //         </TrendingItem>
+  //       </Link>
+  //     );
+  //   })}
+  // </TrendingGallery>
+        
   );
 };
 
