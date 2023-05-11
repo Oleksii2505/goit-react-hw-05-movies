@@ -78,6 +78,3 @@ export const SearchInput = styled.input`
   }
 `;
 
-export const PosterImg = styled.img`
-  object-fit: cover;
-`;
