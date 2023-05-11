@@ -1,20 +1,14 @@
 import { useEffect, useState } from 'react';
 import {  useSearchParams } from 'react-router-dom';
 import Notiflix from 'notiflix';
-import { FaSistrix } from 'react-icons/fa';
+
 import { fetchMoviesBySearchWord } from 'services/api';
-import {
-  SearchBarHeader,
-  SearchForm,
-  SearchInput,
-  SearchFormBtn,
-  SearchFormBtnLabel,
-} from './Movies.styled';
 
 import { MovieList } from 'components/MovieList/MovieList';
+import { SearchBar } from 'components/SearchForm/SearchForm';
 
 const Movies = () => {
-  const [searchQuery, setSearchQuery] = useState('');
+  
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const searchQueryFromParams = searchParams.get('query');
@@ -51,51 +45,15 @@ const Movies = () => {
     }
   }, [searchQueryFromParams, searchParams]);
 
-  const onChange = ({ target }) => {
-    setSearchQuery(target.value);
-  };
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    let { value } = event.target.elements.search;
-
-    setSearchQuery(value.toLowerCase().trim());
-    setSearchParams({ query: value.toLowerCase().trim() });
-
-    if (searchQuery.trim() === '') {
-      Notiflix.Notify.warning('Enter title of movie to search');
-      value = '';
-      return;
-    }
-    setSearchQuery('');
+  const handleSubmit = query => {
+     setSearchParams({query});
   };
 
   return (
     <div>
-      <SearchBarHeader>
-        <SearchForm onSubmit={handleSubmit}>
-          <SearchFormBtn type="submit" className="button">
-            <FaSistrix size="24px" fill="#fff" />
-            <SearchFormBtnLabel className="button-label">
-              Search
-            </SearchFormBtnLabel>
-          </SearchFormBtn>
-
-          <SearchInput
-            type="text"
-            autoComplete="off"
-            name="search"
-            autoFocus
-            placeholder="Search images and photos"
-            value={searchQuery}
-            onChange={onChange}
-          />
-        </SearchForm>
-      </SearchBarHeader>
-
+      <SearchBar onSubmit={handleSubmit}/>
       {movies && (
-        <MovieList movies={movies}/>
-        
+        <MovieList movies={movies}/>       
       )}
     </div>
   );

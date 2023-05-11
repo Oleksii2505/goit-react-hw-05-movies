@@ -77,4 +77,3 @@ export const SearchInput = styled.input`
     color: #ffffff;
   }
 `;
-
