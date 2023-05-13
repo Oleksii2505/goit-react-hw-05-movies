@@ -23,13 +23,12 @@ const Reviews = () => {
 
         setReviews(normalizedReviews(results));
 
-        return reviews;
       } catch (err) {
         console.log(err.message);
       }
     };
     getReviews();
-  }, [movieId, reviews]);
+  }, [movieId]);
 
   return (
     <ReviewsList>
